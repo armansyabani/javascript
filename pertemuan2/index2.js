@@ -1,12 +1,8 @@
-//data produk
-let produk1 = "sabun mandi";
-let produk2 = "shampo zink";
+let produk1 = "Sabun Muka";
+let produk2 = "Sampo";
+let harga1 = 8000;
+let harga2 = 4000;
 
-//data harga produk
-let hargaProduk1 = 7000;
-let hargaProduk2 = 5000;
+let totalHarga = harga1 + harga2;
 
-//jumlah total semua produk
-let totalHarga = hargaProduk1 + hargaProduk2;
-console.log("Total Harga Produk: " + totalHarga);
-total harga sabun muka dan sampo adalah 12000
+
