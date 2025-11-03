@@ -166,7 +166,7 @@ function f4() {
       pesan = "Support!  Kamu tipe yang peduli dan bantu tim yang kesusahan. Hebat banget!";
       break;
     case "fighter":
-      pesan = "Fighter 💥 — Mantap kawan berarti maku adalah premean EXP lane !";
+      pesan = "Fighter  — Mantap kawan berarti maku adalah premean EXP lane !";
       break;
     default:
       pesan = `Role '${role}' unik juga! Kamu pasti punya gaya main sendiri yang nggak biasa `;
