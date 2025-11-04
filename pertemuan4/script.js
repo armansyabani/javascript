@@ -85,7 +85,7 @@ console.log(a("Bambang", "Jakarta", "09876654321"));
 
 function f1() {
   document.getElementById("output").innerText = 
-    "F1: Halo, MANUSIA! Selamat datang di program kami. Di sini kita akan belajar logika dasar JavaScript lewat simulasi kecil buat pemula inimah";
+    "F1: Halo, KAWAN ! Selamat datang di program kami. Di sini kita akan belajar logika dasar JavaScript lewat simulasi kecil buat pemula inimah";
 }
 
 function f2(angkaPertama, angkaKedua, operator) {
