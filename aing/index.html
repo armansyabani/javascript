@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studi Kasus: Profil Gamer ML</title>
+<style>
+  body { font-family: Arial, sans-serif; background-color: #121212; color: #f0f0f0; text-align: center; padding: 40px; }
+  button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+  button:hover { background: #0056b3; }
+  #output { margin-top: 20px; padding: 20px; background: #1e1e1e; border-radius: 12px; }
+</style>
+</head>
+<body>
+
+<h1>🎮 Studi Kasus: Profil Gamer Mobile Legends</h1>
+<p>Klik tombol di bawah untuk memulai interaksi!</p>
+<button onclick="mulai()">Mulai Tanya Jawab</button>
+
+<div id="output"></div>
+
+<script>
+function mulai() {
+  let output = document.getElementById("output");
+  output.innerText = "Selamat datang di Land of Dawn Interview 😎";
+
+  // Langkah 1: Tanya apakah main ML
+  let mainML = prompt("Apakah kamu main Mobile Legends (ML)? (ya/tidak)");
+
+  if (!mainML) {
+    output.innerText = "Kamu nggak jawab 😅, tapi gapapa kok!";
+    return;
+  }
+
+  mainML = mainML.toLowerCase();
+
+  if (mainML !== "ya") {
+    output.innerText = "Oke, kamu bukan player ML tapi mungkin penonton turnamen! Tetap keren 😎";
+    return;
+  }
+
+  // Langkah 2: Tanya nickname
+  let nickname = prompt("Nickname ML kamu apa nih?");
+  if (!nickname) nickname = "Pemain Misterius";
+
+  // Langkah 3: Tanya role
+  let role = prompt("Role apa yang paling sering kamu main? (tank, marksman, mage, assassin, support, fighter)");
+  if (!role) role = "bebas";
+  role = role.toLowerCase();
+
+  // Langkah 4: Tanya rank
+  let rank = prompt("Rank kamu sekarang apa? (Warrior, Elite, Master, Grandmaster, Epic, Legend, Mythic, Glorious)");
+  if (!rank) rank = "belum terdeteksi";
+  rank = rank.charAt(0).toUpperCase() + rank.slice(1).toLowerCase();
+
+  // Langkah 5: Tanya waktu main per hari
+  let jamMain = parseFloat(prompt("Berapa jam kamu biasanya main ML per hari? (angka saja)"));
+  if (isNaN(jamMain)) jamMain = 0;
+
+  // Analisis dan rekomendasi berdasarkan role
+  let rekomendasiHero = "";
+  switch(role) {
+    case "tank": rekomendasiHero = "Tigreal, Atlas, atau Lolita"; break;
+    case "marksman": rekomendasiHero = "Brody, Melissa, atau Claude"; break;
+    case "mage": rekomendasiHero = "Lunox, Kagura, atau Xavier"; break;
+    case "assassin": rekomendasiHero = "Gusion, Saber, atau Joy"; break;
+    case "support": rekomendasiHero = "Angela, Floryn, atau Rafaela"; break;
+    case "fighter": rekomendasiHero = "Chou, Paquito, atau Terizla"; break;
+    default: rekomendasiHero = "hero random biar makin seru 😁";
+  }
+
+  // Analisis jam main
+  let tingkatKetagihan = "";
+  if (jamMain >= 5) tingkatKetagihan = "Hardcore player 🔥";
+  else if (jamMain >= 2) tingkatKetagihan = "Player aktif 💪";
+  else if (jamMain > 0) tingkatKetagihan = "Casual player 😎";
+  else tingkatKetagihan = "Nggak main belakangan ini ya? 😅";
+
+  // Random quote motivasi
+  let quotes = [
+    "“Kalah bukan akhir, tapi awal untuk push rank lagi!” 💪",
+    "“Ingat, teamwork lebih penting dari kill!” 🤝",
+    "“Main boleh, tapi jangan lupa makan dan tidur!” 🍜😴",
+    "“Jangan toxic, karena ML bukan cuma soal menang!” ✨",
+  ];
+  let quoteMotivasi = quotes[Math.floor(Math.random() * quotes.length)];
+
+  // Hasil akhir
+  output.innerHTML = `
+    <h2>🔥 Profil Gamer ML Kamu 🔥</h2>
+    <p><strong>Nickname:</strong> ${nickname}</p>
+    <p><strong>Role Favorit:</strong> ${role}</p>
+    <p><strong>Rank Saat Ini:</strong> ${rank}</p>
+    <p><strong>Durasi Main:</strong> ${jamMain} jam/hari</p>
+    <p><strong>Tingkat Aktivitas:</strong> ${tingkatKetagihan}</p>
+    <p><strong>Rekomendasi Hero:</strong> ${rekomendasiHero}</p>
+    <p style="margin-top:20px;">💬 ${quoteMotivasi}</p>
+    <p>Terus semangat push rank dan jangan lupa rehat ya, ${nickname}! 🚀</p>
+  `;
+}
+</script>
+
+</body>
+</html>
