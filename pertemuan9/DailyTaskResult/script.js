@@ -1,4 +1,4 @@
-//Buat object bernama `buku` dengan properti: `judul`, `pengarang`, `tahunTerbit`
+//Buat object bernama `buku` dengan properti: `judul`, `pengarang`, `tahunTerbit`.
 let kitabsaya ={
     judul : "Safinatunnajah",
     pengarang :"Syekh Salim bin Sumair al-Hadlrami",

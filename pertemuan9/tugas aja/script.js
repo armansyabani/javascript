@@ -1,5 +1,5 @@
 // ============================================
-// LEVEL 1 — ARRAY & OPERASI DASAR
+// LEVEL 1 ARRAY & OPERASI DASAR
 // ============================================
 
 // Data awal
