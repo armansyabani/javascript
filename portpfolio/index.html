@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Interaktif</title>
+  <style>
+    /* === Tampilan Dasar === */
+    body {
+      background-color: #f5f5f5;
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      width: 80%;
+      max-width: 800px;
+      color: white;
+      padding: 20px;
+    }
+
+    .terminal-header {
+      background-color: #3b3b3b;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 5px 10px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .terminal-content {
+      margin-top: 20px;
+      min-height: 100px;
+    }
+
+    /* === Tombol === */
+    .button1, .button2 {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      margin-right: 10px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .button1 {
+      background-color: #4caf50;
+    }
+
+    .button1:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    .button2 {
+      background-color: #ff4d4d;
+    }
+
+    .button2:hover {
+      background-color: #e60000;
+      transform: scale(1.05);
+    }
+
+    /* === Efek Fade-in === */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #description {
+      margin-top: 15px;
+      color: #a9dfbf;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="terminal-header">Terminal</div>
+    <div class="terminal-content">
+      <h1 id="tag1"></h1>
+      <button class="button1" id="btn1" onclick="sayHello()">hallo ngab</button>
+      <button class="button2" id="btnRestart" onclick="resetTerminal()">Restart</button>
+      <p id="description"></p>
+    </div>
+  </div>
+
+  <script>
+    function sayHello() {
+      let nama = prompt("Masukkan Nama Anda:");
+      if (nama) {
+        alert("Halo, " + nama + "! Selamat datang di terminal saya 😄");
+
+        // Tambahkan animasi fade-in setiap kali teks muncul
+        const desc = document.getElementById("description");
+        const title = document.getElementById("tag1");
+
+        title.innerText = "👋 Terminal Aktif";
+        desc.innerText = "Hai " + nama + ", selamat datang di terminal!";
+        
+        // Hapus class animasi sebelumnya (jika ada)
+        title.classList.remove("fade-in");
+        desc.classList.remove("fade-in");
+        void title.offsetWidth; // trik agar animasi bisa diulang
+        void desc.offsetWidth;
+        
+        // Tambahkan kembali animasi fade-in
+        title.classList.add("fade-in");
+        desc.classList.add("fade-in");
+
+        console.log(nama + " telah mengklik tombol Saalaam");
+      } else {
+        alert("Nama tidak boleh kosong!");
+      }
+    }
+
+    function resetTerminal() {
+      const desc = document.getElementById("description");
+      const title = document.getElementById("tag1");
+
+      desc.innerText = "";
+      title.innerText = "";
+      console.clear();
+    }
+  </script>
+</body>
+</html>

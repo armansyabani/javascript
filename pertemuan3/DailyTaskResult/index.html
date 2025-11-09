@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Interaktif JavaScript </title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+      color: #222;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #2d046e;
+      font-size: 2em;
+    }
+
+    .btn {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #4a3be2;
+      transform: scale(1.05);
+    }
+
+    #output {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      min-height: 80px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>💫 Program Interaktif JavaScript 💫</h1>
+  <p>Pilih salah satu fitur di bawah ini:</p>
+
+  <button class="btn" onclick="cekUsia()">👶 Cek Kategori Usia</button>
+  <button class="btn" onclick="cetakAngka()">🔢 Cetak Angka 1–10</button>
+  <button class="btn" onclick="tampilkanHari()">📅 Nama Hari dari Angka</button>
+
+  <div id="output">Hasil akan muncul di sini...</div>
+
+  <footer>🧠 kaisar king's | © 2025</footer>
+
+  <script>
+    const output = document.getElementById("output");
+
+    // 🧒 1. Cek Kategori Usia
+    function cekUsia() {
+      let usia = prompt("Masukkan usia kamu:");
+      usia = Number(usia);
+
+      if (isNaN(usia) || usia < 0) {
+        output.innerHTML = "❌ Usia tidak valid!";
+      } else if (usia < 13) {
+        output.innerHTML = `Usiamu ${usia} tahun → Kategori: Anak-anak 👶`;
+      } else if (usia < 18) {
+        output.innerHTML = `Usiamu ${usia} tahun → Kategori: Remaja 🧒`;
+      } else if (usia < 60) {
+        output.innerHTML = `Usiamu ${usia} tahun → Kategori: Dewasa 🧑`;
+      } else {
+        output.innerHTML = `Usiamu ${usia} tahun → Kategori: Lansia 👴`;
+      }
+    }
+
+    // 🔁 2. Cetak Angka 1–10
+    function cetakAngka() {
+      let hasil = "<strong>Menampilkan angka 1–10:</strong><br>";
+      for (let i = 1; i <= 10; i++) {
+        hasil += `👉 ${i}<br>`;
+      }
+      output.innerHTML = hasil;
+    }
+
+    // 📅 3. Menampilkan Nama Hari
+    function tampilkanHari() {
+      let angka = prompt("Masukkan angka hari (1–7):");
+      angka = Number(angka);
+
+      let hari;
+      switch (angka) {
+        case 1: hari = "Senin";
+         break;
+        case 2: hari = "Selasa"; 
+        break;
+        case 3: hari = "Rabu";
+         break;
+        case 4: hari = "Kamis";
+         break;
+        case 5: hari = "Jumat";
+         break;
+        case 6: hari = "Sabtu";
+         break;
+        case 7: hari = "Minggu";
+         break;
+        default: hari = "❌ Angka tidak valid (masukkan 1–7)";
+      }
+
+      output.innerHTML = `Hari ke-${angka}: ${hari}`;
+    }
+  </script>
+</body>
+</html>
