@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Basic Dataset Example -->
+    <div class="card produk"
+        data-id="KTB01"
+        data-name="Kitab Arbain"
+        data-price="35000">
+        Kitab Arbain
+    </div>
+
+    <div class="card p"
+        data-id="PLN02"
+        data-name="Pulpen Pilot"
+        data-price="25000">
+        Pulpen Pilot
+    </div>
+
+    <div class="card pro"
+        data-id="BTS03"
+        data-name="Sarung BHS"
+        data-price="150000">
+        Sarung BHS
+    </div>
+
+    <!-- Structured Object -->
+    <div class="card product"
+        data-id="KTB01"
+        data-price="35000"
+        data-stock="12"
+        data-category="kitab"
+        data-info='{"brand":"Darus Salam","pages":250}'>
+
+        <h3>Kitab Fathul Qorib</h3>
+        <p class="price">Rp 35.000</p>
+        <p class="stock">12 unit tersedia</p>
+        <button onclick="handlePurchase(this.parentElement)">Beli</button>
+    </div>
+
+    <!-- Consistent Naming -->
+    <div class="card"
+        data-item-id="KT001"
+        data-item-name="Kitab Arbain Nawawi"
+        data-item-price="28000"
+        data-item-type="kitab">
+        Produk Item Konsisten
+    </div>
+
+    <!-- Type Conversion -->
+    <div id="product"
+        data-price="55000"
+        data-stock="8"
+        data-available="true"
+        data-discount="1"
+        data-config='{"size":"110x70","material":"beludru","grade":"premium"}'>
+    </div>
+
+    <!-- Real Product -->
+    <div class="card product-card"
+        data-product-id="P001"
+        data-name="Laptop Gaming"
+        data-price="15000000"
+        data-stock="15"
+        data-category="electronics"
+        data-weight="2.5"
+        data-seller="TechStore"
+        data-discount="10">
+
+        <h3>💻 Laptop Gaming</h3>
+        <p class="display-price">Rp 15.000.000</p>
+        <p class="display-stock">15 unit tersedia</p>
+
+        <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <!-- Tab -->
+    <div class="tab-container">
+        <div class="tab" data-tab-id="home" data-tab-active="true" onclick="switchTab(this)">Home</div>
+        <div class="tab" data-tab-id="profile" data-tab-active="false" onclick="switchTab(this)">Profile</div>
+        <div class="tab" data-tab-id="settings" data-tab-active="false" onclick="switchTab(this)">Settings</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f3f4f6;
+    padding: 20px;
+    color: #333;
+}
+
+/* CARD */
+.card {
+    background: #fff;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    border-left: 5px solid #4CAF50;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.price, .display-price {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.stock, .display-stock {
+    color: #777;
+}
+
+/* BUTTON */
+button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    background: #43a047;
+}
+
+/* TAB */
+.tab-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    padding: 10px 18px;
+    background: #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 500;
+}
+
+.tab[data-tab-active="true"] {
+    background: #4CAF50;
+    color: #fff;
+}
+
+.tab:hover {
+    background: #ccc;
+}
