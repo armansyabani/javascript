@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Validasi — Contoh</title>
+  
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+  <div class="card" role="main">
+    <div>
+      <h1>Form Pendaftaran (contoh)</h1>
+      <p class="lead">Isi form di bawah. Contoh ini memakai HTML5 validation + JavaScript custom validation (password match, nomor telepon, dll).</p>
+
+      <form id="myform" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="fullname">Nama lengkap</label>
+            <input id="fullname" name="fullname" type="text" required minlength="3" placeholder="Contoh: adex sarah" />
+            <div class="err-msg" data-for="fullname">Nama harus diisi (min 3 karakter).</div>
+          </div>
+
+          <div class="field">
+            <label for="age">Usia</label>
+            <input id="age" name="age" type="number" min="10" max="120" required placeholder="Umur" />
+            <div class="err-msg" data-for="age">Masukkan usia antara 10 - 120.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="email@contoh.com" required />
+          <div class="err-msg" data-for="email">Masukkan alamat email valid.</div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="phone">Telepon</label>
+            <!-- pattern: digit 7-15 (boleh + di depan) -->
+            <input id="phone" name="phone" type="tel" pattern="^\+?\d{7,15}$" placeholder="+628xxxxxxxx" required />
+            <div class="err-msg" data-for="phone">Nomor telepon tidak valid (7–15 digit, boleh pakai +).</div>
+          </div>
+
+          <div class="field">
+            <label for="website">Website (opsional)</label>
+            <input id="website" name="website" type="url" placeholder="https://contoh.com" />
+            <div class="err-msg" data-for="website">Jika diisi, masukkan URL yang valid (https://...).</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" minlength="6" required placeholder="Minimal 6 karakter" />
+            <div class="err-msg" data-for="password">Password minimal 6 karakter.</div>
+          </div>
+
+          <div class="field">
+            <label for="confirm">Konfirmasi password</label>
+            <input id="confirm" name="confirm" type="password" required placeholder="Ketik ulang password" />
+            <div class="err-msg" data-for="confirm">Password tidak cocok.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>
+            <input type="checkbox" id="agree" required /> Saya menyetujui <strong>syarat & ketentuan</strong>
+          </label>
+          <div class="err-msg" data-for="agree">Anda harus menyetujui syarat & ketentuan.</div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary">Daftar</button>
+          <button type="reset" class="ghost">Reset</button>
+          <div class="note" style="margin-left:auto;font-size:13px">Semua field wajib kecuali website.</div>
+        </div>
+      </form>
+    </div>
+
+    <aside class="side">
+      <div class="status" id="statusBox">
+        <strong>Status:</strong>
+        <div id="statusText" style="margin-top:8px">Belum ada aksi.</div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="preview-item"><strong>Preview input:</strong></div>
+        <div id="preview" class="preview-item">—</div>
+      </div>
+    </aside>
+  </div>
+       <script src="main.js"></script>
+  
+</body>
+</html>
