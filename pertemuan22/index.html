@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studycase Storage</title>
+</head>
+<body>
+  <main class="container">
+    <h3>STUDY CASE LOCAL &amp; SESSION STORAGE</h3>
+
+    <!-- FORM: gunakan form supaya Enter di input juga submit -->
+    <form id="myForm" class="form-group" novalidate>
+      <label for="input-nama">Nama Lengkap</label>
+      <input
+        type="text"
+        id="input-nama"
+        name="nama"
+        placeholder="Masukkan nama kamu"
+        autocomplete="name"
+        required
+      />
+
+      <!-- Pesan validasi / sukses (screen-reader friendly) -->
+      <p id="msg-name" aria-live="polite" class="msg"></p>
+
+      <div class="actions">
+        <button id="btn-submit" type="submit">Kirim Data</button>
+      </div>
+    </form>
+
+    <!-- Daftar user (block-level) -->
+    <section aria-label="Daftar pengguna">
+      <h4>Daftar Nama</h4>
+      <ul id="list-users"></ul>
+    </section>
+
+    <!-- area demo -->
+    <div id="app">INI BAKAL MUNCUL DI SINI</div>
+  </main>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

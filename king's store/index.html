@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KING'S STORE — Demo All-in-One</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===== Style sederhana agar rapi ===== */
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; background:#222; color:#fff; padding:10px 20px; }
+    .brand span { color:#00f; }
+    .btn { padding:6px 12px; border:none; cursor:pointer; border-radius:4px; }
+    .btn.primary { background:#007bff; color:#fff; }
+    .btn.ghost { background:transparent; border:1px solid #007bff; color:#007bff; }
+    .modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; }
+    .modal.hidden { display:none; }
+    .modal-card { background:#fff; padding:20px; border-radius:8px; max-width:500px; width:90%; }
+    .wide { max-width:800px; }
+    .modal-close { float:right; cursor:pointer; border:none; background:transparent; font-size:18px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin:20px 0; }
+    .card { background:#fff; padding:10px; border-radius:6px; text-align:center; box-shadow:0 0 6px rgba(0,0,0,0.1);}
+    .hidden { display:none; }
+    .container { padding:20px; }
+    input, textarea, select { width:100%; padding:6px; margin:4px 0; border-radius:4px; border:1px solid #ccc; }
+    footer { text-align:center; padding:10px; background:#222; color:#fff; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">KING'S <span>STORE</span></div>
+    <div>
+      <button class="btn ghost" onclick="showView('home')">Beranda</button>
+      <button class="btn ghost" onclick="showView('checkout')">Checkout</button>
+      <button class="btn primary" onclick="openAuth()">Masuk/Daftar</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+    <!-- HOME VIEW -->
+    <section id="home" class="view">
+      <h1>Lagi Hits</h1>
+      <p>Temukan aplikasi premium populer — siap kirim & mudah checkout.</p>
+
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <!-- DETAIL VIEW -->
+    <section id="detail" class="view hidden">
+      <button class="btn ghost" onclick="showView('home')">Kembali</button>
+      <div id="detailBox" class="product-detail"></div>
+    </section>
+
+    <!-- CHECKOUT VIEW -->
+    <section id="checkout" class="view hidden">
+      <button class="btn ghost" onclick="showView('home')">Belanja Lagi</button>
+      <h2>Checkout</h2>
+      <div id="cartArea"></div>
+
+      <div class="card">
+        <h3>Detail Pembeli</h3>
+        <input id="cust_name" placeholder="Nama" />
+        <input id="cust_phone" placeholder="No. WA / Telepon" />
+        <textarea id="cust_note" placeholder="Catatan (optional)"></textarea>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <button class="btn primary" onclick="Checkout.placeOrder()">Bayar & Pesan</button>
+          <button class="btn" onclick="Checkout.clearCart()">Bersihkan Keranjang</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- AUTH MODAL -->
+  <div id="modalAuth" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeAuth()">✕</button>
+      <div id="authTabs">
+        <button onclick="showAuth('login')" class="tab active">Login</button>
+        <button onclick="showAuth('register')" class="tab">Daftar</button>
+      </div>
+      <div id="loginPane">
+        <input id="loginUser" placeholder="Username" />
+        <input id="loginPass" type="password" placeholder="Password" />
+        <button class="btn primary" onclick="Auth.login()">Login</button>
+      </div>
+      <div id="registerPane" class="hidden">
+        <input id="regUser" placeholder="Username" />
+        <input id="regPass" type="password" placeholder="Password" />
+        <button class="btn primary" onclick="Auth.register()">Buat Akun</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ===== Dummy PRODUCTS =====
+    const PRODUCTS = [
+      {id:1, name:"App Premium 1", category:"apps", price:100000, status:"Tersedia", img:"https://via.placeholder.com/150", desc:"Lisensi premium cepat."},
+      {id:2, name:"Media Pack 1", category:"media", price:50000, status:"Tersisa 5", img:"https://via.placeholder.com/150", desc:"Konten media populer."},
+      {id:3, name:"App Premium 2", category:"apps", price:120000, status:"Stok Habis", img:"https://via.placeholder.com/150", desc:"Lisensi cepat & aman."}
+    ];
+
+    // ===== AUTH =====
+    const Auth = {
+      login:()=>{
+        const user = document.getElementById('loginUser').value;
+        alert('Login sukses: '+user);
+        closeAuth();
+      },
+      register:()=>{
+        const user = document.getElementById('regUser').value;
+        alert('Akun dibuat: '+user);
+        closeAuth();
+      }
+    };
+
+    function openAuth(){ document.getElementById('modalAuth').classList.remove('hidden'); }
+    function closeAuth(){ document.getElementById('modalAuth').classList.add('hidden'); }
+    function showAuth(tab){
+      document.getElementById('loginPane').classList.toggle('hidden', tab!=='login');
+      document.getElementById('registerPane').classList.toggle('hidden', tab!=='register');
+    }
+
+    // ===== VIEWS =====
+    function showView(v){
+      document.querySelectorAll('.view').forEach(el=>el.classList.add('hidden'));
+      document.getElementById(v).classList.remove('hidden');
+      if(v==='home') renderProducts();
+      if(v==='checkout') renderCart();
+    }
+
+    // ===== PRODUCTS =====
+    function renderProducts(){
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+      PRODUCTS.forEach(p=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${p.img}" alt="${p.name}" />
+          <h4>${p.name}</h4>
+          <p>${p.status}</p>
+          <p>Rp ${p.price.toLocaleString()}</p>
+          <button class="btn primary" onclick="viewDetail(${p.id})">Lihat</button>
+          <button class="btn ghost" onclick="addToCart(${p.id})">Beli</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function viewDetail(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      const box = document.getElementById('detailBox');
+      box.innerHTML = `
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <img src="${p.img}" style="width:150px;"/>
+          <div>
+            <h2>${p.name}</h2>
+            <p>Kategori: ${p.category}</p>
+            <p>${p.status}</p>
+            <p>Rp ${p.price.toLocaleString()}</p>
+            <p>${p.desc}</p>
+            <button class="btn primary" onclick="addToCart(${p.id})">Beli Sekarang</button>
+          </div>
+        </div>
+      `;
+      showView('detail');
+    }
+
+    // ===== CART =====
+    function addToCart(id){
+      let cart = JSON.parse(localStorage.getItem('ks_cart')||'[]');
+      const prod = PRODUCTS.find(x=>x.id===id);
+      cart.push({id:prod.id, name:prod.name, price:prod.price, qty:1});
+      localStorage.setItem('ks_cart', JSON.stringify(cart));
+      alert('Ditambahkan ke keranjang');
+    }
+
+    const Checkout = {
+      renderCart:()=>{
+        const area = document.getElementById('cartArea');
+        let cart = JSON.parse(localStorage.getItem('ks_cart')||'[]');
+        if(cart.length===0){ area.innerHTML='<p>Keranjang kosong.</p>'; return; }
+        let html = '<div class="grid">';
+        cart.forEach(c=>{ html+=`<div class="card"><h4>${c.name}</h4><p>Rp ${c.price.toLocaleString()}</p><p>Qty: ${c.qty}</p></div>` });
+        html+='</div>';
+        area.innerHTML = html;
+      },
+      placeOrder:()=>{
+        const name = document.getElementById('cust_name').value;
+        alert(`Pesanan berhasil untuk ${name}!`);
+        localStorage.removeItem('ks_cart');
+        showView('home');
+      },
+      clearCart:()=>{
+        localStorage.removeItem('ks_cart');
+        renderCart();
+      }
+    }
+
+    function renderCart(){ Checkout.renderCart(); }
+
+    // ===== INIT =====
+    showView('home');
+  </script>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> KING'S STORE — Demo local</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>

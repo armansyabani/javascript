@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Studi Kasus Storage</title>
+</head>
+<body>
+
+  <h2>1. Simpan Nama Pengguna</h2>
+  <input id="namaInput" placeholder="Masukkan nama">
+  <button onclick="saveName()">Simpan</button>
+  <p>Nama tersimpan: <span id="display">-</span></p>
+
+  <hr>
+
+  <h2>2. Penghitung Kunjungan</h2>
+  <button onclick="increaseVisit()">Tambah Kunjungan</button>
+  <div id="app"></div>
+
+  <hr>
+
+  <h2>3. Mode Light / Dark</h2>
+  <button onclick="toggleTheme()">Ganti Tema</button>
+
+  <hr>
+
+  <h2>4. Auto Draft Tugas</h2>
+  <textarea id="draft" placeholder="Ketik jawabanmu..." oninput="saveDraft()"></textarea>
+
+  <hr>
+
+  <h2>5. Pilih Bahasa</h2>
+  <select id="lang" onchange="saveLang()">
+    <option value="ID">Indonesia</option>
+    <option value="EN">English</option>
+  </select>
+  <p>Bahasa dipilih: <span id="selected">ID</span></p>
+
+  <hr>
+
+  <h2>6. To-do Belajar</h2>
+  <input id="todo" placeholder="Tambahkan tugas">
+  <button onclick="addTodo()">Tambah</button>
+  <ul id="list"></ul>
+
+  <hr>
+
+  <h2>7. Ukuran Font</h2>
+  <input id="font" placeholder="16px" onchange="saveFont()">
+  <button onclick="saveFont()">Terapkan</button>
+
+  <hr>
+
+  <h2>8. Form Biodata + Restore</h2>
+  <input id="f_name" placeholder="Nama">
+  <input id="f_email" placeholder="Email">
+  <button onclick="saveForm()">Simpan Form</button>
+  <button onclick="loadForm()">Load Form</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
