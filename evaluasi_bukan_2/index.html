@@ -1,0 +1,816 @@
+perbaiki yang salah nya  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING'S STORE</title>
+    <link rel="icon" href="images/kings.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="title">KING'S STORE</a>
+        <input type="search" name="" id= "" class="input-search" placeholder="   cari sesuatu disini">
+        <button type="submit" class="input-sumbit">cari</button>
+        <nav>
+            <ul>
+                <li><a href="#home">BERANDA</a></li>
+                <li><a href="#populer">PRODUK</a></li>
+                <li><a href="#tentang">TENTANG</a></li>
+                <li><a href="#">KONTAK</a></li>
+            </ul>
+        </nav>
+    </header>
+<input id="username">
+<input id="password">
+<button onclick="doLogin()">Login</button>
+
+<script>
+function doLogin() {
+    let user = loginUser(
+        document.getElementById("username").value,
+        document.getElementById("password").value
+    );
+
+    if (user.success) window.location.href = "index.html";
+    else alert(user.message);
+}
+</script>
+
+<input id="nama">
+<input id="gambar">
+<input id="kategori">
+<input id="harga">
+<textarea id="deskripsi"></textarea>
+
+<button onclick="submitProduct()">Tambah Produk</button>
+
+<script>
+function submitProduct() {
+    addProduct({
+        nama: nama.value,
+        gambar: gambar.value,
+        kategori: kategori.value,
+        harga: harga.value,
+        deskripsi: deskripsi.value
+    });
+
+    window.location.href = "products.html";
+}
+</script>
+
+<div id="list-produk"></div>
+
+<script>
+renderProducts("list-produk");
+</script>
+
+<button onclick="confirmCheckout()">Checkout</button>
+
+<script>
+function confirmCheckout() {
+    const res = checkout();
+    if (res.success) alert("Berhasil checkout!");
+    else alert(res.message);
+}
+</script>
+
+    <div id="home" class="slider">
+        <h4>Klik Disini Untuk Slide Gambar</h4>
+        <input type="radio" name="choose" id="" class="choose_1">
+        <input type="radio" name="choose" id="" class="choose_2">
+        <div class="slides">
+             <a href="https://www.instagram.com/kaisar_kings?igsh=b2dqcmtqM2M1ZXFl" target="_blank" rel="noopener noreferrer" class="slide s1">
+                 <img src="images/slide-1.jpg" alt="">
+             </a>
+             <a href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer" class="slide">
+            <img src="images/slide-2.jpg" alt="">
+            </a>
+        </div>
+    </div>
+       
+    <h1 class="title-p">POPULER</h1>
+    <section id="populer" class="populer">
+
+        <div class="mlbb">
+        <div class="link">
+            <a href="#harga-mlbb">
+                    <img src="./images/mlbb.jpg" alt="">
+                    <div class="judul-produk">mobile legends</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-mlbb">
+            <div class="popup">
+                <h2>HARGA MOBILE LEGENDS</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    70 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 13.000</span>
+                    <br>
+                    100 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    200 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    300 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    400 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    500 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    700 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    1000 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 125.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 150.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="GenshinImpact">
+        <div class="link">
+            <a href="#harga-GenshinImpact">
+                    <img src="./images/GenshinImpact.jpg" alt="">
+                    <div class="judul-produk">GenshinImpact</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-GenshinImpact">
+            <div class="popup">
+                <h2>HARGA GENSHINIMPACT</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    75 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 10.000</span>
+                    <br>
+                    145 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    215 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    285 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    355 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    505 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    725 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    1000 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 130.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 150.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="valorant">
+        <div class="link">
+            <a href="#harga-valorant">
+                    <img src="./images/valorant.jpg" alt="">
+                    <div class="judul-produk">valorant</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-valorant">
+            <div class="popup">
+                <h2>HARGA VALORANT</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    70 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 10.000</span>
+                    <br>
+                    150 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    300 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    400 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    500 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    700 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    1.000 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    1/500 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 130.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 25.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="higgs_domino">
+        <div class="link">
+            <a href="#harga-higgs_domino">
+                    <img src="./images/higgs_domino.jpg" alt="">
+                    <div class="judul-produk">higgs_domino</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-higgs_domino">
+            <div class="popup">
+                <h2>HARGA HIGGS DOMINO</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    25 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 10.000</span>
+                    <br>
+                    50 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    30 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    40 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    50 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    60 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    70 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    100 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 125.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 150.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pubgm">
+        <div class="link">
+            <a href="#harga-pubgm">
+                    <img src="./images/pubgm.jpg" alt="">
+                    <div class="judul-produk">pubg mobile</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-pubgm">
+            <div class="popup">
+                <h2>HARGA PUBG MOBILE</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    110 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 10.000</span>
+                    <br>
+                    220 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    330 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    440 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    555 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    770 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    1.500 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    1.500 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 140.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 25.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 135.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ff">
+        <div class="link">
+            <a href="#harga-ff">
+                    <img src="./images/ff.png" alt="">
+                    <div class="judul-produk">Free Fire</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-ff">
+            <div class="popup">
+                <h2>HARGA FREE FIRE</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    70 Diamonds  : 
+                    <br>    
+                    <span class="harga">Rp 10.000</span>
+                    <br>
+                    140 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    210 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    280 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 40.000</span>
+                    <br>
+                    355 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br>
+                    500 Diamond  : 
+                    <br>
+                    <span class="harga">Rp 70.000</span>
+                    <br>
+                    720 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    1000 Diamonds : 
+                    <br>
+                    <span class="harga">Rp 130.000</span>
+                    <br>
+                    M. Mingguan  : 
+                    <br>
+                    <span class="harga">Rp 30.000</span>
+                    <br>
+                    M. Bulanan   : 
+                    <br>
+                    <span class="harga">Rp 150.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wink">
+        <div class="link">
+            <a href="#harga-wink">
+                    <img src="./images/wink.jpeg" alt="">
+                    <div class="judul-produk">wink</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-wink">
+            <div class="popup">
+                <h2>HARGA WINK</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                
+            <div class="content">
+                paket shering :
+                <br><br>
+                1 minggu: <br>
+                <span class="harga">Rp 1.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 2.500</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 15.000</span><br>
+
+                seumur hidup / no limit: <br>
+                <span class="harga">Rp 50.000</span><br><br>
+
+                paket private :
+                <br><br>
+                
+                1 minggu : <br>
+                <span class="harga">Rp 2.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 7.000</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 50.000</span><br>
+
+                seumur hidup / no limit : <br>
+                <span class="harga">Rp 350.000</span><br>
+                <a class="pesan" href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/whatsapp.png" alt="">Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="kine master">
+        <div class="link">
+            <a href="#harga-kine master">
+                    <img src="./images/kine master.jpeg" alt="">
+                    <div class="judul-produk">kine naster</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-kine master">
+            <div class="popup">
+                <h2>HARGA KINE MASTER</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                
+            <div class="content">
+                paket shering :
+                <br><br>
+                1 minggu: <br>
+                <span class="harga">Rp 1.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 2.500</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 15.000</span><br>
+
+                seumur hidup / no limit: <br>
+                <span class="harga">Rp 50.000</span><br><br>
+
+                paket private :
+                <br><br>
+                
+                1 minggu : <br>
+                <span class="harga">Rp 2.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 7.000</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 50.000</span><br>
+
+                seumur hidup / no limit : <br>
+                <span class="harga">Rp 350.000</span><br>
+                <a class="pesan" href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/whatsapp.png" alt="">Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="alightmotion">
+        <div class="link">
+            <a href="#harga-alightmotion">
+                    <img src="./images/alightmotion.jpeg" alt="">
+                    <div class="judul-produk">alightmotion</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-alightmotion">
+            <div class="popup">
+                <h2>HARGA ALIGHTMOTION</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+
+                paket shering :
+                <br><br>
+                1 minggu: <br>
+                <span class="harga">Rp 1.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 2.500</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 15.000</span><br>
+
+                seumur hidup / no limit: <br>
+                <span class="harga">Rp 50.000</span><br><br>
+
+                paket private :
+                <br><br>
+                
+                1 minggu : <br>
+                <span class="harga">Rp 2.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 7.000</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 50.000</span><br>
+
+                seumur hidup / no limit : <br>
+                <span class="harga">Rp 350.000</span><br>
+                <a class="pesan" href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/whatsapp.png" alt="">Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="picsart">
+    <div class="link">
+        <a href="#harga-picsart">
+            <img src="./images/Picsart.jpeg" alt="">
+            <div class="judul-produk">Picsart</div>
+        </a>
+    </div>
+
+    <div class="overlay" id="harga-picsart">
+        <div class="popup">
+            <h2>HARGA PICSART</h2>
+            <a class="close" href="#populer">&times;</a>
+            <br>
+
+           
+            <div class="content">
+                paket shering :
+                <br><br>
+                1 minggu: <br>
+                <span class="harga">Rp 2.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 4.500</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 35.000</span><br>
+
+                seumur hidup / no limit: <br>
+                <span class="harga">Rp 60.000</span><br><br>
+
+                paket private :
+                <br><br>
+                
+                1 minggu : <br>
+                <span class="harga">Rp 3.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 10.000</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 70.000</span><br>
+
+                seumur hidup / no limit : <br>
+                <span class="harga">Rp 350.000</span><br>
+                <a class="pesan" href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/whatsapp.png" alt="">Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="neflix">
+    <div class="link">
+        <a href="#harga-neflix">
+            <img src="./images/neflix.jpg" alt="">
+            <div class="judul-produk">Neflix</div>
+        </a>
+    </div>
+
+    <div class="overlay" id="harga-neflix">
+        <div class="popup">
+            <h2>HARGA NEFLIX</h2>
+            <a class="close" href="#populer">&times;</a>
+            <br>
+
+            <div class="content">
+                paket shering :
+                <br><br>
+                1 minggu: <br>
+                <span class="harga">Rp 1.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 2.500</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 15.000</span><br>
+
+                seumur hidup / no limit: <br>
+                <span class="harga">Rp 50.000</span><br><br>
+
+                paket private :
+                <br><br>
+                
+                1 minggu : <br>
+                <span class="harga">Rp 2.000</span><br>
+
+                1 bulan : <br>
+                <span class="harga">Rp 7.000</span><br>
+
+                1 tahun : <br>
+                <span class="harga">Rp 50.000</span><br>
+
+                seumur hidup / no limit : <br>
+                <span class="harga">Rp 350.000</span><br>
+                <a class="pesan" href="https://wa.me/6287856967462" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/whatsapp.png" alt="">Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     <div class="bstation">
+        <div class="link">
+            <a href="#harga-bstation">
+                    <img src="./images/bstation.jpg" alt="">
+                    <div class="judul-produk">Bstation</div>
+            </a>
+        </div>
+        <div class="overlay" id="harga-bstation">
+            <div class="popup">
+                <h2>HARGA BSTATION</h2>
+                <a class="close" href="#populer">&times;</a>
+                <br>
+                <div class="content">
+                    paket shering :
+                    <br><br>
+                    1 Minggu : 
+                    <br>    
+                    <span class="harga">Rp 1.000</span>
+                    <br>
+                    1 Bulan : 
+                    <br>
+                    <span class="harga">Rp 3.000</span>
+                    <br>
+                    setahun : 
+                    <br>
+                    <span class="harga">Rp 20.000</span>
+                    <br>
+                    seumur hidup / no limit : 
+                    <br>
+                    <span class="harga">Rp 50.000</span>
+                    <br><br>
+                    paket private :
+                    <br>br
+                    1 Minggu : 
+                    <br>
+                    <span class="harga">Rp 3.000</span>
+                    <br>
+                    1 bulan: 
+                    <br>
+                    <span class="harga">Rp 15.000</span>
+                    <br>
+                    1 tahun: 
+                    <br>
+                    <span class="harga">Rp 100.000</span>
+                    <br>
+                    seumur hidup / no limit : 
+                    <br>
+                    <span class="harga">Rp 500.000</span>
+                    <br>
+                    <a class="pesan" href="https://wa.me/6287856967462" 
+                    target="_blank" 
+                    rel="noopener noreferrer"><img src="./images/whatsapp.png" alt="">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="tentang" id="tentang">
+        <div class="card">
+    <h1>TENTANG KAMI</h1>
+    <br>
+    <p>
+        <a href="" class="title">KING'S STORE</a> adalah website yang menyediakan layanan digital
+        <br>
+        seperti layanan straming premium,dan lain-lain
+        <br>
+        kami berdiri sejak tahun 2025 dan di percaya oleh sebagai konsumen.
+    </p>
+        </div>
+    </section>
+  
+    <footer>
+        <div class="sosmed">
+        <h1>SOSIAL MEDIA</h1>
+        <a href="https://instagram.com/kaisar_kings_" target="_blank" rel="noopener noreferrer"><img src="images/intagram.png" alt=""></a>
+        <a href="https://" target="_blank" rel=" noopener noreferrer"><img src="images/fb.png"></a>
+        <a href="https://" target="_blank" rel=" noopener noreferrer"><img src="images/github.png"></a>
+        <a href="https://" target="_blank" rel=" noopener noreferrer"><img src="images/linkedin.png"></a>
+        </div>
+    </footer>
+    <div id="copyright">
+        &copy;2025 KING'S STORE
+    </div>
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING'S STORE</title>
+    <link rel="icon" href="images/kings.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="js/auth.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+<script src="js/todo.js"></script>
+<body>
+  
