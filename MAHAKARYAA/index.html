@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Registrasi Simple</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="box" id="loginBox">
+    <h2>Login</h2>
+    <input type="text" id="loginUser" placeholder="Username">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button onclick="login()">Masuk</button>
+
+    <p class="switch">Belum punya akun? <a onclick="showRegister()">Daftar</a></p>
+</div>
+
+<div class="box" id="registerBox" style="display:none;">
+    <h2>Registrasi</h2>
+    <input type="text" id="regUser" placeholder="Username">
+    <input type="password" id="regPass" placeholder="Password">
+    <input type="password" id="regConfirm" placeholder="Konfirmasi Password">
+    <button onclick="register()">Daftar</button>
+
+    
+    <p class="switch">Sudah punya akun? <a onclick="showLogin()">Login</a></p>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
